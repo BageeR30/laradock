@@ -100,6 +100,19 @@ RUN if [ ${INSTALL_FAKETIME} = true ]; then \
     apt-get install -y libfaketime \
 ;fi
 
+
+###########################################################################
+# bz2:
+###########################################################################
+
+ARG INSTALL_BZ2=true
+
+RUN if [ ${INSTALL_BZ2} = true ]; then \
+    # Install the bz2 extension
+    apt-get install -y libbz2-dev && \
+    docker-php-ext-install bz2 \
+;fi
+
 ###########################################################################
 # SOAP:
 ###########################################################################
